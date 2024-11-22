@@ -1,0 +1,74 @@
+{{> loader}}
+{{> admin-header}}
+
+{{> admin-nav}}
+    <main class="mn-inner">
+        <div class="row">
+            <div class="col s12">
+                <!-- <div class="page-title"><h4>Faculty Leave Management System</h4></div> -->
+
+                <div class="col s12 m6 l8 offset-l2 offset-m3">
+                    <div class="card white darken-1" style="margin-left: 20%;" >
+
+                        <div class="card-content ">
+                            <span class="card-title" style="font-size:20px;"></span></span>
+
+                            <div class="row">
+                                <table class="table" style="">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Dob</th>
+                                            <th scope="col">Phone</th>
+                                            
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#if princi}}
+                                         <style>tr:nth-child(even) {background-color: #f2f2f2;}</style>
+                                        
+                                       
+                                        
+                                        <tr>
+                                            <th scope="row">{{princi.id}}</th>
+                                            <td>{{princi.name}}</td>
+                                            <td>{{princi.dob}}</td>
+                                            <td>{{princi.phone}}</td>
+                                            
+                                            <td><a href="/admin/edit-princi/{{princi._id}}" class="btn btn-primary" style="font-size: 9px; padding: 0 1rem;">Edit </a></td>
+                                            <td><a href="/admin/delete-princi/{{princi._id}}", class="btn btn-danger" style="font-size: 9px; padding: 0 1rem; " onclick="return confirm('Are you sure want to delete: {{princi.id}}')">Delete </a></td>
+                                            
+
+                                        </tr>
+                                        
+                                            
+                                       
+                                        
+                                        
+                                        
+                                                         
+                                    </tbody>
+
+                                </table>
+
+
+                            </div>
+                            
+                        </div>
+                        {{else}}
+                            <a href="/admin/addPrinci" class="btn btn-primary" style="font-size: 9px; padding: 0 1rem;">Add  </a>
+                            {{/if}}
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+</div>
+</main>
+
+</div>
+<div class="left-sidebar-hover"></div>

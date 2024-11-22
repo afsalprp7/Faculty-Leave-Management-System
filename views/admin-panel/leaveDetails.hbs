@@ -1,0 +1,141 @@
+{{> loader}}
+{{> header}}
+{{#if user.hod}}
+{{> hod-nav}}
+
+{{else}}
+{{> princi-nav}}
+{{/if}}
+
+
+
+
+
+<main class="mn-inner">
+    <div class="row">
+
+        <div class="page-title" style=" margin-left: 20%;   font-weight: bold;">Leave Details</div>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="card" style="margin-left: 20%;">
+            <div class="card-content">
+                <span class="card-title">Leave Details</span>
+
+
+                <div class="responsive-table">
+                    <table id="example" class="display">
+                        <tbody>
+                            <tr>
+                                <td><strong>Faculty Name:</strong></td>
+                                <td>{{leaves.name}}</td>
+                                <td><strong>Faculty Code:</strong></td>
+                                <td>{{leaves.id}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Leave Type:</strong></td>
+                                <td>{{leaves.leavetype}}</td>
+                                <td><strong>Leave Dates:</strong></td>
+                                <td><strong>From :</strong> {{leaves.fromdate}}{{leaves.halfdaydate}}<br><strong>To
+                                        &emsp; :</strong> {{leaves.todate}}{{leaves.halfdaydate}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Leave Description:</strong></td>
+                                <td colspan="3">{{leaves.description}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alternate Arrangement:</strong></td>
+                                <td colspan="3">{{#each leaves.finalarrangement}}{{this}}<br>{{/each}}</td>
+                            </tr>
+                            {{#if leaves.hodComment}}
+                            <tr>
+                                <td><strong>HOD Comment:</strong></td>
+                                <td colspan="3">{{leaves.hodComment}}</td>
+                            </tr>
+                            {{/if}}
+                            {{#if leaves.princiComment}}
+                            <tr>
+                                <td><strong>Principal Comment:</strong></td>
+                                <td colspan="3">{{leaves.princiComment}}</td>
+                            </tr>
+                            {{/if}}
+                           
+
+
+
+                            <tr>
+
+
+                                <script>
+                                    function validateForm(element) {
+                                        var url = element.getAttribute("data-url");
+                                        var comment = document.getElementById("text").value;
+                                        if (comment == "") {
+                                            alert("Please enter a comment before " + element.innerHTML.trim() + "ing.");
+                                            return false;
+                                        }
+                                        else {
+                                            var dataUrl = url + '/' + encodeURIComponent(comment);
+                                            element.setAttribute("data-href", dataUrl);
+                                            location.href = element.getAttribute("data-href");
+                                        }
+                                    }
+                                </script>
+
+
+
+
+                                {{#if user.hod}}
+                                {{#compare leaves.hodStatus undefined}}
+
+                                <td ><strong>Add Comment : </strong></td>
+                                <td colspan="5">
+                                    <textarea id="text" onchange="[...document.getElementsByClassName('action')].forEach(i =>{
+                                            i.setAttribute('data-href', i.dataset.url+'/'+encodeURIComponent(this.value));
+                                        })" required></textarea>
+                                </td>
+
+                                <td colspan="5">
+                                    <a onclick="validateForm(this)" data-url="/admin/accept-leave/{{leaves._id}}"
+                                        class="btn btn-primary action" style="font-size: 9px; padding: 0 1rem;">Accept
+                                    </a>
+                                    <a onclick="validateForm(this)" data-url="/admin/reject-leave/{{leaves._id}}"
+                                        class="btn btn-primary action"
+                                        style="font-size: 9px; padding: 0 1rem; margin-top: 2px;">Reject
+                                    </a>
+                                </td>
+                                {{/compare}}
+                                {{else if user.principal}}
+                                {{#compare leaves.princiStatus undefined}}
+
+                                <td ><strong>Add Comment : </strong></td>
+                                <td colspan="5">
+                                    <textarea id="text" onchange="[...document.getElementsByClassName('action')].forEach(i =>{
+                                            i.setAttribute('data-href', i.dataset.url+'/'+encodeURIComponent(this.value));
+                                        })" required></textarea>
+                                </td>
+
+                                <td colspan="5">
+                                    <a onclick="validateForm(this)" data-url="/admin/accept-princiLeave/{{leaves._id}}"
+                                        class="btn btn-primary action" style="font-size: 9px; padding: 0 1rem;">Accept
+                                    </a>
+                                    <a onclick="validateForm(this)" data-url="/admin/reject-princiLeave/{{leaves._id}}"
+                                        class="btn btn-primary action"
+                                        style="font-size: 9px; padding: 0 1rem; margin-top: 2px;">Reject
+                                    </a>
+                                </td>
+                                {{/compare}}
+                               
+                                {{/if}}
+
+
+
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

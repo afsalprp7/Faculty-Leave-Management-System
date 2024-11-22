@@ -1,0 +1,103 @@
+{{> loader}}
+{{> header}}
+
+{{> hr-nav}}
+
+
+<body>
+
+    <main class="mn-inner">
+
+        <div class="row">
+            <div class="page-title" style="margin-left: 20%;    font-weight: bold;">HR Info</div>
+        </div>
+        <div class="col s12 m12 l12 offset-l2 offset-m3">
+            <div class="card" style="margin-left: 20%;">
+                <div class="card-content">
+
+
+                    <div>
+
+
+
+                        <section>
+                            <div class="wizard-content">
+
+                                <div class="row">
+                                    <div class="col m6">
+
+
+
+                                        <div class="input-field col  s12">
+                                            <label for="empcode">Faculty Code</label>
+                                            <input name="id" value="{{user.id}}" type="text" autocomplete="off" readonly
+                                                required>
+                                            <span id="empid-availability" style="font-size:12px;"></span>
+                                        </div>
+
+
+                                        <div class="input-field col  s12">
+                                            <label for=""> Name</label>
+                                            <input id="name" name="name" value="{{user.name}}" type="text" required>
+                                        </div>
+
+
+
+                                        <div class="input-field col s12">
+                                            <label for="email">Email</label>
+                                            <input name="email" type="email" id="email" value="{{user.email}}" readonly
+                                                autocomplete="off" required>
+                                            <span id="emailid-availability" style="font-size:12px;"></span>
+                                        </div>
+
+                                        <div class="input-field col s12">
+                                            <label for="phone">Mobile Number</label>
+                                            <input class="form-control" id="phone" name="phone" type="tel"
+                                                value="{{user.phone}}" maxlength="10" autocomplete="off" required>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+                                    <div class="col m6 ">
+
+
+                                        <div class="input-field col  s12">
+                                            <label for="empcode">Date of birth</label>
+                                            <input name="id" value="{{user.dob}}" type="text" autocomplete="off"
+                                                readonly required>
+                                            <span id="empid-availability" style="font-size:12px;"></span>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </main>
+</body>
+
+<div class="left-sidebar-hover"></div>

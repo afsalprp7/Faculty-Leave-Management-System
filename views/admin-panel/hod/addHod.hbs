@@ -1,0 +1,83 @@
+{{> loader}}
+{{> admin-header}}
+{{> admin-nav}}
+    <main class="mn-inner">
+        <div class="row">
+            <div class="col s12">
+               
+
+                <div class="col s8 m6 l8 offset-l2 offset-m3">
+                    <div class="card white darken-1" style="margin-left: 20%;">
+
+                        <div class="card-content ">
+                            <span class="card-title" style="font-size:20px;"></span></span>
+
+                            <section>
+                                <container class="container mt-4 ">
+                                    <div class="row ">
+                                        <div class="col-md-12  ">
+                                            <form action="/admin/add-Hod" method="post">
+                                                <div class=" col s12">
+                                                    <label for="">Id</label>
+                                                    <input type="text" name="id" class="form-control">
+
+
+
+                                                    <label for="">Name</label>
+                                                    <input type="text" name="name" class="form-control">
+
+                                                    <label for="">Dob</label>
+                                                    <input type="text" name="dob" class="form-control">
+
+                                                    <label for="">Phone</label>
+                                                    <input type="text" name="phone" class="form-control">
+                                                    
+
+                                                    <label for="">Email</label>
+                                                    <input type="email" name="email" class="form-control">
+
+                                                    <label for="">Password</label>
+                                                    <input type="password" class="form-control" name="password">
+
+                                                 
+                                                    <label for="">Department</label>
+                                                <select name="department" autocomplete="off">
+                                                            
+                                                            <option value="cse">CSE</option>
+                                                            <option value="me">ME</option>
+                                                            <option value="ece">ECE</option>
+                                                            <option value="eee">EEE</option>
+                                                            <option value="ce">CE</option>
+                                                            
+                                                        </select>
+                                                    
+                                                     <input type="hidden"  name="hod" value="yes">
+                                                    
+
+
+
+
+                                                    <button type="submit" class="btn btn-primary form-control">Add
+                                                        Hod</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                </container>
+                            </section>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</main>
+
+</div>
+<div class="left-sidebar-hover"></div>

@@ -1,0 +1,89 @@
+{{> loader}}
+{{> header}}
+{{> princi-nav}}
+
+
+<main class="mn-inner">
+    <div class="row">
+
+        <div class="col s12 m12 l6">
+            <div class="card white darken-1" style="margin-left: 20%;">
+
+                <div class="card-content ">
+
+
+
+                    <table class="display responsive-table ">
+                        <thead  style="  color: rgb(110, 110, 110);">
+                            <tr>
+                                <th scope="col">Faculty code</th>
+                                <th scope="col">Leave type</th>
+                                
+                                <th scope="col">Department</th>
+
+                                <th scope="col">From </th>
+                                <th scope="col">To </th>
+                                <th scope="col">No.of days</th>
+                                
+                                <th scope="col">Status</th>
+                                <th scope="col">Info</th>
+
+                            </tr>
+                        </thead>
+                        <tbody style="font-weight:500 ;   color: rgb(110, 110, 110);">
+                            <style>
+                                tr:nth-child(even) {
+                                    background-color: #f2f2f2;
+                                }
+                            </style>
+
+
+                            {{#each leaves}}
+                            
+                            <tr>
+                                <th>{{this.id}}</th>
+                                <td>{{this.leavetype}}</td>
+                                
+                                <td style="text-transform: uppercase;">{{this.department}}</td>
+
+                                <td style="    font-size: 11px;  ">{{this.fromdate}}{{this.halfdaydate}}</td>
+                                <td style="    font-size: 11px;  ">{{this.todate}}{{this.halfdaydate}}</td>
+                                <td>{{this.nofdays}}</td>
+                               
+
+
+                                {{#compare princiStatus true}}
+                                <td style="    font-size: 11px; color:blue; ">HOD approved<br>Principal approved </td>
+                                
+                                
+                             {{else compare princiStatus false}}
+                                <td style="    font-size: 11px; color:rgb(255, 0, 0); "><span style="color: blue;">HOD approved</span><br>Rejectyed by Principal </td>
+                                {{/compare}}
+                           
+                            {{#compare princiStatus undefined}}
+                              <td style=" font-size: 11px; color: rgb(0, 8, 255);">HOD approved</td>
+                                
+                                {{/compare}}
+                            
+
+
+                            <td>
+                                    <a  href="/admin/princi-leave-action/{{this._id}}/{{this.id}}" style="text-decoration: wavy;"><i class="i " > i </i></a>
+                                 
+                                </td>
+
+
+                            </tr>
+                            
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

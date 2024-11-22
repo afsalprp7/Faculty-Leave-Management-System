@@ -1,0 +1,143 @@
+{{> loader}}
+{{> header}}
+    {{> hod-nav}}
+
+
+    <body>
+
+        <main class="mn-inner">
+
+            <div class="row">
+                <div class="page-title" style=" margin-left: 20%;   font-weight: bold;">HOD Info</div>
+            </div>
+            <div class="col s12 m12 l12 offset-l2 offset-m3">
+                <div class="card" style="margin-left: 20%;">
+                    <div class="card-content">
+                       <!-- <span class="card-title" style="font-size:20px;">Update Your Profile</span> -->
+                         <form action="/admin/update-hodProfile/{{user._id}}" method="post">
+                            <div>
+
+
+
+                                <section>
+                                    <div class="wizard-content">
+                                       
+                                            <div class="row">
+                                                <div class="col m6">
+
+
+
+                                                    <div class="input-field col  s12">
+                                                        <label for="empcode">HOD Code</label>
+                                                        <input  name="id"  value="{{user.id}}"
+                                                            type="text" autocomplete="off" readonly required>
+                                                        <span id="empid-availability" style="font-size:12px;"></span>
+                                                    </div>
+
+
+                                                    <div class="input-field col  s12">
+                                                        <label for=""> Name</label>
+                                                        <input id="name" name="name" value="{{user.name}}"
+                                                            type="text" required>
+                                                    </div>
+
+
+
+                                                    <div class="input-field col s12">
+                                                        <label for="email">Email</label>
+                                                        <input name="email" type="email" id="email" value="{{user.email}}" readonly
+                                                            autocomplete="off" required>
+                                                        <span id="emailid-availability" style="font-size:12px;"></span>
+                                                    </div>
+
+                                                    <div class="input-field col s12">
+                                                        <label for="phone">Mobile Number</label>
+                                                        <input class="form-control" id="phone" name="phone" type="tel"
+                                                            value="{{user.phone}}" maxlength="10" autocomplete="off"
+                                                            required>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="col m6">
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="gender">Gender</label> <br>
+                                                        <select name="gender" autocomplete="off">
+                                                            <option value="{{user.gender}}">{{user.gender}}</option>
+                                                            <option value="Male">Male</option>
+                                                            <option value="Female">Female</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
+                                                    </div>
+                                                    <label for="">  Date of Birth</label>
+                                                    <div class="input-field col m6 s12">
+
+                                                        <input id="birthdate" name="dob" class="datepicker"
+                                                            value="{{user.dob}}">
+                                                    </div>
+
+
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="department">Department</label> <br>
+                                                        <select name="department" autocomplete="off">
+                                                            <option  value="{{user.department}}">{{user.department}}</option>
+
+                                                            <option value="EEE">EEE</option>
+                                                            <option value="CSE">CSE</option>
+                                                            <option value="ME">ME</option>
+                                                            <option value="CE">CE</option>
+                                                            <option value="ECE">ECE</option>
+                                                            
+
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="address">Address</label>
+                                                        <input id="address" name="address" type="text" value="{{user.address}}"
+                                                            autocomplete="off" required value>
+                                                    </div>
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="city">City/Town</label>
+                                                        <input id="city" name="city" type="text" value="{{user.city}}"
+                                                            autocomplete="off" required>
+                                                    </div>
+
+                                                    <div class="input-field col m6 s12">
+                                                        <label for="country">Country</label>
+                                                        <input id="country" name="country" type="text" value="{{user.country}}"
+                                                            autocomplete="off" required>
+                                                    </div>
+
+                                                    
+
+
+
+                                                    <div class="input-field col s12">
+                                                        <button type="submit" 
+                                                            class="form-control waves-effect waves-light btn indigo m-b-xs">UPDATE</button>
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                </section>
+
+
+                                </section>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+</div>
+<div class="left-sidebar-hover"></div>

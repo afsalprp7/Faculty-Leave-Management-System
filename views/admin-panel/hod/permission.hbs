@@ -1,0 +1,91 @@
+{{> loader}}
+{{> header}}
+{{> hod-nav}}
+
+<body>
+
+    <main class="mn-inner">
+
+        <div class="row">
+            <div class="page-title" style=" margin-left: 20%;   font-weight: bold;">HOD Info</div>
+        </div>
+        <div class="col s12 m12 l12 offset-l2 offset-m3">
+            <div class="card" style="margin-left: 20%;">
+                <div class="card-content">
+                    <table class="display responsive-table ">
+                        <thead style="color: rgb(110, 110, 110);">
+                            <tr>
+                                <th scope="col">Faculty code</th>
+
+                                <th scope="col">Name</th>
+
+                                <th scope="col">Date </th>
+
+                                <th scope="col">Reason</th>
+
+                                <th scope="col">Action</th>
+                            </tr>
+
+                        </thead>
+                        <tbody style="font-weight:500 ;   color: rgb(110, 110, 110);">
+                            <style>
+                                tr:nth-child(even) {
+                                    background-color: #f2f2f2;
+                                }
+                            </style>
+                            {{#each list}}
+                            <tr>
+                                <th style="color: rgb(110, 110, 110); ">{{this.id}}</th>
+
+                                <td style=" font-size: 11px;  ">{{this.name}}</td>
+
+                                <td style=" font-size: 11px;  ">{{this.date}}</td>
+
+                                <td style=" font-size: 11px;  ">{{this.leaveReason}}</td>
+
+                                {{#if status }}
+                                <td style="   "> </td>
+
+                                {{else }}
+
+
+                                
+                                <td>
+                                    <a href="/admin/permission-accept/{{this._id}}/{{this.department}}/{{this.id}}"
+                                        class="btn btn-primary"
+                                        style="font-size: 9px; padding: 0 1rem; width: 60px;">Accept</a>&nbsp;
+
+                                    <a href="/admin/permission-reject/{{this._id}}/{{this.department}}"
+                                        class="btn btn-primary"
+                                        style="font-size: 9px; padding: 0 1rem; width: 60px;">Reject</a>
+                                </td>
+                                
+
+                                {{/if}}
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="left-sidebar-hover"></div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,95 @@
+{{> loader}}
+{{> header}}
+{{> nav}}
+
+
+
+<main class="mn-inner">
+    <div class="row">
+
+        <div class="page-title" style=" margin-left: 20%;   font-weight: bold;">Leave History</div>
+    </div>
+    <div class="col s12 m12 l6">
+        <div class="card" style="margin-left: 20%;">
+            <div class="card-content">
+                <p style="font-weight: bold; color: rgb(110, 110, 110);">CASUAL LEAVES : {{totalLeave}}&emsp;&emsp; DUTY LEAVES : {{totalDl}}</p>
+                <br>
+                {{#if permission}}
+                  {{#if permission.status}}<h6 style="color:blue ;"><b>Permission Request was {{permission.status}}</b></h6>{{else}}
+                    <h6 style="color:orange ;"><b>The Permission request is pending.</b></h6>{{/if}}
+                {{/if}}
+
+                <table style="border-top: solid; border-color: rgba(110, 110, 110, 0.212);" class="display responsive-table ">
+                    <thead style="color: rgb(110, 110, 110);">
+                        <tr>
+
+                            <th scope="col">Leave type</th>
+                            <th scope="col">From </th>
+                            <th scope="col">To </th>
+                            <th scope="col">No.of days</th>
+                            
+                            <th scope="col">Status</th>
+                            <th scope="col">Info</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-weight:500 ;   color: rgb(110, 110, 110);">
+                        <style>
+                            tr:nth-child(even) {
+                                background-color: #f2f2f2;
+                            }
+                        </style>
+                        {{#each leaves}}
+                        
+                        
+                        <tr>
+
+                            <td>{{this.leavetype}}</td>
+                            <td style="    font-size: 11px;  " id="fromdate">{{this.fromdate}}{{this.halfdaydate}}</td>
+                            <td style="    font-size: 11px;  " id="todate">{{this.todate}} {{this.halfdaydate}}</td>
+                            <td>{{this.nofdays}}</td>
+                            
+
+
+                            {{#compare hodStatus true}}
+                            <td style="    font-size: 11px; color:blue; ">HOD approved
+                                {{#compare princiStatus true}}<br>Principal approved{{else compare princiStatus
+                                false}}<br><span style="color: red;">Rejected by princi</span>{{/compare}}</td>
+                               
+
+                            {{else compare hodStatus false}}
+                            <td style="    font-size: 11px; color:rgb(255, 0, 0); ">Rejected by HOD </td>
+                            {{/compare}}
+
+
+
+                            {{#compare hodStatus undefined}}
+                            <td style="color: orange;">Pending</td>
+
+                            {{/compare}}
+
+
+                            <td>
+                                <a href="/users/leave-info/{{this._id}}" style="text-decoration: wavy;"><i class="i "> i
+                                    </i></a>
+
+                            </td>
+                            {{/each}}
+
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    </div>
+</main>
+
+</div>
+<div class="left-sidebar-hover"></div>
